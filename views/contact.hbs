@@ -1,0 +1,24 @@
+<h1 class="text-center">Contact Us</h1>
+<form method="post">
+    <fieldset>
+        {{#each errorMessages}}
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong> {{this.msg}}</strong>
+            </div>
+        {{/each}}
+        <div class="form-group">
+            <label for="exampleInputName" class="form-label mt-4">Name</label>
+            <input type="text" class="form-control" id="exampleInputName" placeholder="You Name" name = "name" value = {{name}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name = "email" value = {{email}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputMessage" class="form-label mt-4">Message</label>
+            <textarea class="form-control" id="exampleInputMessage" rows="3" placeholder="Enter Message" name = "message">{{message}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>

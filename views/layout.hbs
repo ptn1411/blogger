@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src='/plugin/tinymce.min.js'></script>
+    <script src='/javascripts/edit.js'></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">{{title}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            {{#if user}}
+           <ul class="navbar-nav me-auto">
+               <li class="nav-item">
+                   <a class="nav-link active" href="/users">User
+                       <span class="visually-hidden">(current)</span>
+                   </a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/blog">Blog</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/blog/new">New Post</a>
+               </li>
+           </ul>
+       {{else}}
+           <ul class="navbar-nav me-auto">
+               <li class="nav-item">
+                   <a class="nav-link active" href="/">Home
+                       <span class="visually-hidden">(current)</span>
+                   </a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/contact">Contact</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="/about">About</a>
+               </li>
+
+           </ul>
+            {{/if}}
+            <div class="dropdown">
+                {{#if user}}
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hi {{user.name}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/auth/logout">Logout</a>
+                    </div>
+                {{else}}
+                    <a class="btn btn-primary" href="/auth/login">Login</a>
+                    <a class="btn btn-primary" href="/auth/register">Register</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        {{{body}}}
+    </div>
+</div>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/popper.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/sweetalert2.all.min.js"></script>
+<script src="/javascripts/main.js"></script>
+</body>
+</html>

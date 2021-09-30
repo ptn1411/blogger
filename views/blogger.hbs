@@ -1,0 +1,16 @@
+<div class="list-group">
+
+    {{#each data}}
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <input type="hidden" value="{{this.id}}">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{this.title}}</h5>
+                <small>{{this.published}}</small>
+            </div>
+            <small>{{this.labels}}</small>
+            <p class="mb-1"><a  target="_blank" href="{{this.url}}" class="btn btn-warning">Link </a> <a href="/blog/edit/{{this.id}}" class="btn btn-success">Edit</a>
+                <button class="btn btn-danger" id="btnDelete" value="{{this.id}}">Delete</button> </p>
+        </a>
+    {{/each}}
+
+</div>
